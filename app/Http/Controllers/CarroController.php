@@ -42,10 +42,10 @@ class CarroController extends Controller
             'message' => 'Não funciona'
         ]);
     }
-    public function procurarPorNome(Request $request)
+    public function procurarPorNome($busca)
     {
 
-        $carros = Carro::where('modelo', 'like', '%' . $request->modelo . '%')->get();
+        $carros = Carro::where('modelo', 'like', '%' . $busca . '%')->get();
         if (count($carros) > 0) {
             return response()->json([
                 'status' => true,
