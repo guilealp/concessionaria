@@ -117,4 +117,21 @@ class CarroController extends Controller
             'message' => "carro excluido com sucesso"
         ]);
     }
+    public function procurarPorMarca($busca)
+    {
+
+        $carros = Carro::where('marca', 'like', '%' . $busca . '%')->get();
+        if (count($carros) > 0) {
+            return response()->json([
+                'status' => true,
+                'data' => $carros
+            ]);
+        }
+
+
+        return response()->json([
+            'status' => false,
+            'message' => "Não há resultados para pesquisar"
+        ]);
+    }
 }

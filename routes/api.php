@@ -9,3 +9,4 @@ Route::get('carro/all',[CarroController::class, 'returnAll']);
 Route::post('carro/pesquisa/modelo/{busca}',[CarroController::class,'procurarPorNome']);
 Route::put('carro/update',[CarroController::class,'updateCarro']);
 Route::delete('carro/deletar/{id}',[CarroController::class,'excluirCarro']);
+Route::get('carro/pesquisa/marca/{busca}',[CarroController::class,'procurarPorMarca']);
